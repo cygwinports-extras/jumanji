@@ -1,0 +1,22 @@
+GIT_URI="git://git.pwmt.org/jumanji.git"
+inherit git
+
+NAME="jumanji"
+VERSION=0.20111209
+RELEASE=1
+CATEGORY="Web"
+SUMMARY="Minimalistic web browser"
+DESCRIPTION="jumanji is a highly customizable and functional web browser based
+on the libwebkit web content engine and the gtk+ toolkit. The idea behind
+jumanji is a web browser that provides a minimalistic and space saving
+interface as well as an easy usage that mainly focuses on keyboard interaction."
+HOMEPAGE="http://pwmt.org/projects/jumanji/"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake \
+		CC=${CC} CFLAGS="${CFLAGS} -std=gnu99 \$(INCS)" \
+		LDFLAGS="${LDFLAGS}"
+}
+
